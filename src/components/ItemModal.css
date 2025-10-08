@@ -1,0 +1,56 @@
+.modal__container_type_image {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 0;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px 16px 0 0;
+  object-fit: cover;
+}
+
+.modal__footer {
+  padding: 20px 24px;
+}
+
+.modal__caption {
+  margin: 0 0 8px 0;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.modal__weather {
+  margin: 0;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #8b8b8b;
+}
+
+@media screen and (max-width: 480px) {
+  .modal__container_type_image {
+    max-width: calc(100vw - 40px);
+  }
+
+  .modal__footer {
+    padding: 16px 20px;
+  }
+
+  .modal__caption {
+    font-size: 18px;
+  }
+
+  .modal__weather {
+    font-size: 14px;
+  }
+}

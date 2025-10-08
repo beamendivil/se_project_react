@@ -1,0 +1,83 @@
+.item-card {
+  background: #e9e9e9;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  width: 325px;
+  height: 328px;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.item-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-card-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 2px 12px;
+}
+
+.item-card-name {
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* Responsive card styles */
+@media (max-width: 768px) {
+  .item-card {
+    border-radius: 12px;
+  }
+
+  .item-card-image {
+    height: 180px;
+  }
+
+  .item-card-info {
+    padding: 0.875rem;
+  }
+
+  .item-card-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .item-card {
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .item-card-image {
+    height: 160px;
+  }
+
+  .item-card-info {
+    padding: 0.75rem;
+  }
+
+  .item-card-name {
+    font-size: 1rem;
+  }
+
+  .item-card-weather {
+    font-size: 0.85rem;
+  }
+}
