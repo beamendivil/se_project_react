@@ -1,8 +1,8 @@
 import "./WeatherCard.css";
 
 function WeatherCard({ weatherData }) {
-  // Default values if no weather data provided
-  const temperature = weatherData?.temperature ?? 75;
+  // Access the Fahrenheit temperature from the nested structure
+  const temperature = weatherData?.temperature?.F ?? 75;
 
   return (
     <div className="weather-card">

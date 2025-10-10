@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Header from "./Header";
-import Main from "./main.jsx";
+import Main from "./Main.jsx";
 import Footer from "./Footer";
 import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
@@ -27,13 +27,15 @@ function App() {
         setWeatherData(weather);
 
         // Set default clothing items (normalized to match our component expectations)
-        const normalizedClothingItems = defaultClothingItems.map((item) => ({
-          id: item._id,
-          name: item.name,
-          imageUrl: item.link,
-          weather: item.weather.toLowerCase(), // Ensure consistent casing
-          description: `A ${item.name.toLowerCase()} perfect for ${item.weather.toLowerCase()} weather.`,
-        }));
+        const normalizedClothingItems = defaultClothingItems
+          .filter((item) => item && item.link && item.name) // Filter out any invalid items
+          .map((item) => ({
+            id: item._id,
+            name: item.name,
+            imageUrl: item.link,
+            weather: item.weather.toLowerCase(), // Ensure consistent casing
+            description: `A ${item.name.toLowerCase()} perfect for ${item.weather.toLowerCase()} weather.`,
+          }));
 
         setClothingItems(normalizedClothingItems);
       } catch (error) {

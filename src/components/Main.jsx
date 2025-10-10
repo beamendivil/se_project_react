@@ -3,16 +3,14 @@ import ItemCard from "./ItemCard";
 import "./Main.css";
 
 function Main({ weatherData, clothingItems, onCardClick }) {
-  // Use weatherType from weatherData (provided by weather API)
-  const currentWeatherType = weatherData?.weatherType || "warm";
+  // Determine weather type based on temperature
+  const temperature = weatherData?.temperature?.F || 75;
+  const currentWeatherType =
+    temperature >= 75 ? "hot" : temperature >= 60 ? "warm" : "cold";
 
-  // Filter items based on weather type
-  const filteredItems = clothingItems.filter((item) => {
-    // This is a basic filter - in reality you'd have more complex logic
-    return (
-      item.weather.toLowerCase().includes(currentWeatherType) ||
-      item.weather.toLowerCase() === "all"
-    );
+  // Filter items based on weather type with defensive checks
+  const filteredItems = (clothingItems || []).filter((item) => {
+    return item && item.weather === currentWeatherType;
   });
 
   return (
@@ -21,7 +19,7 @@ function Main({ weatherData, clothingItems, onCardClick }) {
       <section className="main__items">
         <ul className="main__items-list">
           {filteredItems.map((item) => (
-            <li key={item.id} className="main__item">
+            <li key={item.id || item._id} className="main__item">
               <ItemCard item={item} onCardClick={onCardClick} />
             </li>
           ))}

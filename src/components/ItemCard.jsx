@@ -7,11 +7,20 @@ function ItemCard({ item, onCardClick }) {
     }
   };
 
+  // Add defensive checks to prevent null/undefined errors
+  if (!item) {
+    return null;
+  }
+
   return (
     <div className="item-card" onClick={handleClick}>
-      <img src={item.imageUrl} alt={item.name} className="item-card-image" />
+      <img
+        src={item.imageUrl || item.link || ""}
+        alt={item.name || "Clothing item"}
+        className="item-card-image"
+      />
       <div className="item-card-label">
-        <span className="item-card-name">{item.name}</span>
+        <span className="item-card-name">{item.name || "Unknown item"}</span>
       </div>
     </div>
   );
