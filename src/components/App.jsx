@@ -20,34 +20,33 @@ function App() {
   // Fetch weather data and set default clothing items on component mount
   useEffect(() => {
     const loadInitialData = async () => {
+      // Set default clothing items first (always available)
+      const normalizedClothingItems = defaultClothingItems
+        .filter((item) => item && item.link && item.name) // Filter out any invalid items
+        .map((item) => ({
+          id: item._id,
+          name: item.name,
+          imageUrl: item.link,
+          weather: item.weather.toLowerCase(), // Ensure consistent casing
+          description: `A ${item.name.toLowerCase()} perfect for ${item.weather.toLowerCase()} weather.`,
+        }));
+
+      setClothingItems(normalizedClothingItems);
+
       try {
-        // Fetch weather data
+        // Try to fetch weather data
         const data = await getForecastWeather();
         const weather = parseWeatherData(data);
         setWeatherData(weather);
-
-        // Set default clothing items (normalized to match our component expectations)
-        const normalizedClothingItems = defaultClothingItems
-          .filter((item) => item && item.link && item.name) // Filter out any invalid items
-          .map((item) => ({
-            id: item._id,
-            name: item.name,
-            imageUrl: item.link,
-            weather: item.weather.toLowerCase(), // Ensure consistent casing
-            description: `A ${item.name.toLowerCase()} perfect for ${item.weather.toLowerCase()} weather.`,
-          }));
-
-        setClothingItems(normalizedClothingItems);
       } catch (error) {
-        console.error("Error loading initial data:", error);
-        // Set fallback data
+        console.error("Error loading weather data:", error);
+        // Set fallback weather data
         setWeatherData({
           city: "New York",
           temperature: { F: 68, C: 20 },
           condition: "Partly Cloudy",
           weatherType: "warm",
         });
-        setClothingItems([]);
       }
     };
 
@@ -87,6 +86,18 @@ function App() {
 
   return (
     <div className="app">
+      <div
+        style={{
+          padding: "20px",
+          backgroundColor: "#f0f0f0",
+          minHeight: "100px",
+        }}
+      >
+        <h1>WTWR App Debug</h1>
+        <p>Weather Data: {weatherData ? "Loaded" : "Loading..."}</p>
+        <p>Clothing Items: {clothingItems.length} items</p>
+      </div>
+
       <Header
         onAddClothesClick={handleOpenAddClothesModal}
         weatherData={weatherData}
