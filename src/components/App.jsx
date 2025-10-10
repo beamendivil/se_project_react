@@ -96,6 +96,16 @@ function App() {
         <h1>WTWR App Debug</h1>
         <p>Weather Data: {weatherData ? "Loaded" : "Loading..."}</p>
         <p>Clothing Items: {clothingItems.length} items</p>
+        <p>
+          Sample item:{" "}
+          {clothingItems.length > 0
+            ? JSON.stringify(clothingItems[0])
+            : "No items"}
+        </p>
+        <p>Active Modal: {activeModal}</p>
+        <p>
+          Selected Item: {selectedItem ? JSON.stringify(selectedItem) : "None"}
+        </p>
       </div>
 
       <Header
