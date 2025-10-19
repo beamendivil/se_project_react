@@ -1,16 +1,28 @@
 .main {
   position: relative;
-  width: 1440px;
-  height: 822px;
+  width: 100%;
+  min-height: 100vh;
   background: #f3f3f3;
 }
 
+.main__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
+}
+
 .main__items {
-  position: absolute;
-  width: 1360px;
-  height: 387px;
-  left: 40px;
-  top: 220px;
+  width: 100%;
+}
+
+.main__clothing-text {
+  /* Using UI text style 1 / 20-24 Bold / Cabinet Grotesk */
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 24px 0;
 }
 
 .main__items-list {
@@ -18,41 +30,16 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, 325px);
-  gap: 45px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
 }
 
 .main__item {
   margin: 0;
 }
 
-/* Responsive grid layouts */
-@media (max-width: 1200px) {
-  .main__items-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .main {
-    padding: 1rem;
-  }
-
-  .main__items-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main {
-    padding: 0.75rem;
-  }
-
-  .main__items-list {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .main__inner {
+    padding: 80px 16px 24px;
   }
 }

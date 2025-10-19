@@ -20,18 +20,8 @@ function App() {
   // Fetch weather data and set default clothing items on component mount
   useEffect(() => {
     const loadInitialData = async () => {
-      // Set default clothing items first (always available)
-      const normalizedClothingItems = defaultClothingItems
-        .filter((item) => item && item.link && item.name) // Filter out any invalid items
-        .map((item) => ({
-          id: item._id,
-          name: item.name,
-          imageUrl: item.link,
-          weather: item.weather.toLowerCase(), // Ensure consistent casing
-          description: `A ${item.name.toLowerCase()} perfect for ${item.weather.toLowerCase()} weather.`,
-        }));
-
-      setClothingItems(normalizedClothingItems);
+      // Set default clothing items
+      setClothingItems(defaultClothingItems);
 
       try {
         // Try to fetch weather data
@@ -62,6 +52,25 @@ function App() {
     setSelectedItem(null);
   };
 
+  const handleAddGarmentSubmit = (event) => {
+    event.preventDefault();
+
+    // Get form data
+    const formData = new FormData(event.target);
+    const newItem = {
+      _id: Date.now(), // Simple ID generation
+      name: formData.get("name"),
+      link: formData.get("imageUrl"),
+      weather: formData.get("weather"),
+    };
+
+    // Add the new item to clothing items
+    setClothingItems((prevItems) => [...prevItems, newItem]);
+
+    // Close the modal
+    handleCloseModal();
+  };
+
   const handleCardClick = (item) => {
     setSelectedItem(item);
     setActiveModal("item-details");
@@ -86,28 +95,6 @@ function App() {
 
   return (
     <div className="app">
-      <div
-        style={{
-          padding: "20px",
-          backgroundColor: "#f0f0f0",
-          minHeight: "100px",
-        }}
-      >
-        <h1>WTWR App Debug</h1>
-        <p>Weather Data: {weatherData ? "Loaded" : "Loading..."}</p>
-        <p>Clothing Items: {clothingItems.length} items</p>
-        <p>
-          Sample item:{" "}
-          {clothingItems.length > 0
-            ? JSON.stringify(clothingItems[0])
-            : "No items"}
-        </p>
-        <p>Active Modal: {activeModal}</p>
-        <p>
-          Selected Item: {selectedItem ? JSON.stringify(selectedItem) : "None"}
-        </p>
-      </div>
-
       <Header
         onAddClothesClick={handleOpenAddClothesModal}
         weatherData={weatherData}
@@ -124,16 +111,71 @@ function App() {
       <ModalWithForm
         isOpen={activeModal === "add-clothes"}
         onClose={handleCloseModal}
+        onSubmit={handleAddGarmentSubmit}
         title="Add New Clothes"
         name="add-clothes"
         buttonText="Add garment"
       >
-        {/* Form content will be added here */}
-        <p>Form for adding new clothes will go here.</p>
+        <label className="modal__label">
+          Name
+          <input
+            type="text"
+            className="modal__input"
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </label>
+
+        <label className="modal__label">
+          Image URL
+          <input
+            type="url"
+            className="modal__input"
+            name="imageUrl"
+            placeholder="Image URL"
+            required
+          />
+        </label>
+
+        <fieldset className="modal__radio-buttons">
+          <legend className="modal__legend">Select the weather type:</legend>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="hot"
+              className="modal__radio-input"
+              required
+            />
+            Hot
+          </label>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="warm"
+              className="modal__radio-input"
+              required
+              defaultChecked
+            />
+            Warm
+          </label>
+          <label className="modal__label modal__label_type_radio">
+            <input
+              type="radio"
+              name="weather"
+              value="cold"
+              className="modal__radio-input"
+              required
+            />
+            Cold
+          </label>
+        </fieldset>
       </ModalWithForm>
 
       <ItemModal
-        activeModal={activeModal}
+        isOpen={activeModal === "item-details"}
         onClose={handleCloseModal}
         card={selectedItem}
       />

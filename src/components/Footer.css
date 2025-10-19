@@ -10,14 +10,18 @@
 
 .footer__text {
   margin: 0;
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  /* Using UI text style 2 Bold / 16-20 Bold / Cabinet Grotesk */
+  font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
+  line-height: 20px;
   font-weight: 700;
 }
 
 .footer__year {
   margin: 5px 0 0 0;
-  font-family: "Cabinet Grotesk", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  /* Using UI text style 2 / 16-20 Medium / Cabinet Grotesk */
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
 }
