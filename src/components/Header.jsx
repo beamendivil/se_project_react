@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
+import ToggleSwitch from "./ToggleSwitch";
 import logoImage from "../assets/Logo (1).png";
 import avatarImage from "../assets/avatar.png";
 
@@ -21,13 +23,13 @@ function Header({ onAddClothesClick, weatherData }) {
     <header className="header">
       <div className="header__inner">
         <div className="header__left">
-          <div className="header__logo">
+          <Link to="/" className="header__logo">
             <img
               src={logoImage}
               alt="WTWR Logo"
               className="header__logo-image"
             />
-          </div>
+          </Link>
           <div className="header__date-location">
             <p className="header__date">
               {currentDate}, {currentLocation}
@@ -36,6 +38,7 @@ function Header({ onAddClothesClick, weatherData }) {
         </div>
 
         <div className="header__right">
+          <ToggleSwitch />
           <button
             className="header__add-button"
             onClick={onAddClothesClick}
@@ -43,14 +46,14 @@ function Header({ onAddClothesClick, weatherData }) {
           >
             + Add clothes
           </button>
-          <div className="header__user">
+          <Link to="/profile" className="header__user">
             <p className="header__user-name">{userName}</p>
             <img
               src={avatarImage}
               alt={userName}
               className="header__user-avatar"
             />
-          </div>
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -81,6 +84,7 @@ function Header({ onAddClothesClick, weatherData }) {
             <p className="header__mobile-date">{currentDate}</p>
             <p className="header__mobile-location">{currentLocation}</p>
           </div>
+          <ToggleSwitch />
           <button
             className="header__mobile-add-button"
             onClick={onAddClothesClick}
@@ -88,14 +92,14 @@ function Header({ onAddClothesClick, weatherData }) {
           >
             + Add clothes
           </button>
-          <div className="header__mobile-user">
+          <Link to="/profile" className="header__mobile-user">
             <img
               src={avatarImage}
               alt={userName}
               className="header__mobile-user-avatar"
             />
             <p className="header__mobile-user-name">{userName}</p>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./WeatherCard.css";
+import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
 // Import weather assets
 import dayFog from "../assets/day/fog.png";
@@ -16,8 +18,12 @@ import nightCloudy from "../assets/night/cloudy.png";
 import nightClear from "../assets/night/clear.png";
 
 function WeatherCard({ weatherData }) {
-  // Access the weather data
-  const temperature = weatherData?.temperature?.F ?? 75;
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  // Access the weather data using the context value
+  const temperature =
+    weatherData?.temperature?.[currentTemperatureUnit] ??
+    (currentTemperatureUnit === "F" ? 75 : 24);
   const condition = weatherData?.condition || "Clear";
 
   // Determine if it's day or night (simplified - you can enhance this with sunrise/sunset data)
@@ -74,7 +80,9 @@ function WeatherCard({ weatherData }) {
       style={{ backgroundImage: `url(${weatherImage})` }}
     >
       <div className="weather-card__content">
-        <div className="weather-temperature font-bold">{temperature}°F</div>
+        <div className="weather-temperature font-bold">
+          {temperature}°{currentTemperatureUnit}
+        </div>
       </div>
     </div>
   );

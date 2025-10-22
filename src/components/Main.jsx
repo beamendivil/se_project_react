@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
+import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
 function Main({ weatherData, clothingItems, onCardClick }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   // Get the weather type from the weatherData
   const currentWeatherType = weatherData?.weatherType || "warm";
 
@@ -13,13 +17,18 @@ function Main({ weatherData, clothingItems, onCardClick }) {
     return item.weather.toLowerCase() === currentWeatherType.toLowerCase();
   });
 
+  // Get temperature in the current unit using context
+  const currentTemp =
+    weatherData?.temperature?.[currentTemperatureUnit] ??
+    (currentTemperatureUnit === "F" ? 75 : 24);
+
   return (
     <main className="main">
       <div className="main__inner">
         <WeatherCard weatherData={weatherData} />
         <section className="main__items">
           <p className="main__clothing-text">
-            Today is {weatherData?.temperature?.F || 75}°F / You may want to
+            Today is {currentTemp}°{currentTemperatureUnit} / You may want to
             wear:
           </p>
           <ul className="main__items-list">

@@ -8,7 +8,7 @@ function ItemModal({ isOpen, onClose, card }) {
   };
 
   return (
-    <div 
+    <div
       className={`modal ${isOpen ? "modal_opened" : ""}`}
       onClick={handleOverlayClick}
     >
