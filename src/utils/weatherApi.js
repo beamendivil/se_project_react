@@ -21,6 +21,11 @@ const getCurrentLocation = () => {
           latitude: latitude,
           longitude: longitude,
         });
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 300000, // 5 minutes
       }
     );
   });

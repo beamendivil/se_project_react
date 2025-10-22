@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm";
 import useForm from "../../hooks/useForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
-  const { values, handleChange, resetForm } = useForm({
+  const { values, errors, isValid, handleChange, resetForm } = useForm({
     name: "",
     imageUrl: "",
     weather: "warm", // Default weather type
@@ -12,11 +12,15 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Only submit if form is valid
+    if (!isValid) {
+      return;
+    }
+
     // Create new item object
     const newItem = {
-      _id: Date.now(), // Simple ID generation
-      name: values.name,
-      link: values.imageUrl,
+      name: values.name.trim(),
+      imageUrl: values.imageUrl.trim(),
       weather: values.weather,
     };
 
@@ -39,31 +43,41 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       title="New garment"
       name="add-garment"
       buttonText="Add garment"
+      isFormValid={isValid}
     >
       <label className="modal__label">
         Name*
         <input
           type="text"
-          className="modal__input"
+          className={`modal__input ${
+            errors.name ? "modal__input_type_error" : ""
+          }`}
           name="name"
           placeholder="Name"
           value={values.name}
           onChange={handleChange}
           required
+          minLength="2"
         />
+        {errors.name && <span className="modal__error">{errors.name}</span>}
       </label>
 
       <label className="modal__label">
         Image*
         <input
           type="url"
-          className="modal__input"
+          className={`modal__input ${
+            errors.imageUrl ? "modal__input_type_error" : ""
+          }`}
           name="imageUrl"
           placeholder="Image URL"
           value={values.imageUrl}
           onChange={handleChange}
           required
         />
+        {errors.imageUrl && (
+          <span className="modal__error">{errors.imageUrl}</span>
+        )}
       </label>
 
       <fieldset className="modal__radio-buttons">

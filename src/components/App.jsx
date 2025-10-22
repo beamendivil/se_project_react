@@ -22,10 +22,12 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [itemToDelete, setItemToDelete] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Fetch weather data and clothing items on component mount
   useEffect(() => {
     const loadInitialData = async () => {
+      setIsLoading(true);
       try {
         // Fetch clothing items from the server
         const items = await getItems();
@@ -50,6 +52,7 @@ function App() {
           weatherType: "warm",
         });
       }
+      setIsLoading(false);
     };
 
     loadInitialData();
@@ -150,21 +153,29 @@ function App() {
             <Route
               path="/"
               element={
-                <Main
-                  weatherData={weatherData}
-                  clothingItems={clothingItems}
-                  onCardClick={handleCardClick}
-                />
+                isLoading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <Main
+                    weatherData={weatherData}
+                    clothingItems={clothingItems}
+                    onCardClick={handleCardClick}
+                  />
+                )
               }
             />
             <Route
               path="/profile"
               element={
-                <Profile
-                  clothingItems={clothingItems}
-                  onCardClick={handleCardClick}
-                  onAddClothesClick={handleOpenAddClothesModal}
-                />
+                isLoading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <Profile
+                    clothingItems={clothingItems}
+                    onCardClick={handleCardClick}
+                    onAddClothesClick={handleOpenAddClothesModal}
+                  />
+                )
               }
             />
           </Routes>

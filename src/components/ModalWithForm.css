@@ -101,6 +101,22 @@
   background-color: #fff;
 }
 
+.modal__input_type_error {
+  border-color: #ff4444;
+  background-color: #fff;
+}
+
+.modal__input_type_error:focus {
+  border-color: #ff4444;
+}
+
+.modal__error {
+  color: #ff4444;
+  font-size: 14px;
+  margin-top: 4px;
+  display: block;
+}
+
 .modal__radio-buttons {
   border: none;
   padding: 0;
@@ -152,6 +168,16 @@
 
 .modal__submit:hover {
   background-color: #333;
+}
+
+.modal__submit_disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.modal__submit_disabled:hover {
+  background-color: #ccc;
 }
 
 @media screen and (max-width: 480px) {

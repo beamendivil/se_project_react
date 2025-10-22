@@ -4,8 +4,7 @@
   width: 56px;
   height: 28px;
   cursor: pointer;
-  /* Add some debugging to make it more visible */
-  border: 1px solid transparent;
+  border-radius: 14px;
 }
 
 .switch__box {
@@ -21,9 +20,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #7e7e7e;
+  background-color: #eeeeee;
   border-radius: 14px;
-  transition: 0.4s;
+  transition: background-color 0.3s ease, opacity 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,18 +36,26 @@
   width: 20px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #000000; /* This is correct, always black */
   border-radius: 50%;
-  transition: 0.4s;
-  z-index: 2;
-}
-
-.switch__box:checked + .switch__slider {
-  background-color: #00a3ff;
+  transition: transform 0.3s ease;
+  z-index: 2; /* Thumb is above track */
 }
 
 .switch__box:checked + .switch__slider:before {
   transform: translateX(28px);
+}
+
+/* --- Hover effect --- */
+
+/* Hover when UNCHECKED (F) */
+.switch__box:not(:checked) + .switch__slider:hover:before {
+  transform: translateX(2px);
+}
+
+/* Hover when CHECKED (C) */
+.switch__box:checked + .switch__slider:hover:before {
+  transform: translateX(26px); /* CHANGED from 30px */
 }
 
 .switch__temp-f,
@@ -57,25 +64,39 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1;
-  color: white;
+  color: #333;
   z-index: 1;
   user-select: none;
+  transition: color 0.3s ease;
+}
+
+/* Default (Unchecked) State: 'F' is white */
+.switch__box:not(:checked) + .switch__slider .switch__temp-f {
+  color: white;
+  z-index: 3;
+}
+
+/* Checked State: 'C' is white */
+.switch__box:checked + .switch__slider .switch__temp-c {
+  color: white;
+  z-index: 3; /* Put active text ON TOP of thumb */
 }
 
 .switch__temp-f {
-  margin-left: 2px;
+  /* Nudge text to be centered in the thumb area */
+  margin-left: 0;
+  width: 20px; /* Match thumb width */
+  text-align: center;
 }
 
 .switch__temp-c {
-  margin-right: 2px;
+  /* Nudge text to be centered in the thumb area */
+  margin-right: 0;
+  width: 20px; /* Match thumb width */
+  text-align: center;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility - subtle outline */
 .switch__box:focus + .switch__slider {
-  box-shadow: 0 0 0 2px rgba(0, 163, 255, 0.3);
-}
-
-/* Hover effect */
-.switch:hover .switch__slider {
-  opacity: 0.9;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
