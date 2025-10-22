@@ -1,10 +1,14 @@
 import "./ItemModal.css";
 
-function ItemModal({ isOpen, onClose, card }) {
+function ItemModal({ isOpen, onClose, card, onDeleteItem }) {
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
+  };
+
+  const handleDeleteClick = () => {
+    onDeleteItem(card);
   };
 
   return (
@@ -26,6 +30,13 @@ function ItemModal({ isOpen, onClose, card }) {
               <p className="modal__weather">
                 Weather: {card.weather || "Unknown"}
               </p>
+              <button
+                type="button"
+                className="modal__delete-button"
+                onClick={handleDeleteClick}
+              >
+                Delete item
+              </button>
             </div>
           </>
         )}

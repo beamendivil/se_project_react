@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "_id": "5d52ca02978fbd001fc44cb0",
+      "name": "Cap",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb1",
+      "name": "Hoodie",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb2",
+      "name": "Jacket",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb3",
+      "name": "Sneakers",
+      "weather": "warm",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb4",
+      "name": "T-Shirt",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb5",
+      "name": "Winter coat",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb6",
+      "name": "Boots",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Boot.png?etag=0953a2ea59f1c6ebc832fabacdc9c70e",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb7",
+      "name": "Jeans",
+      "weather": "warm",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jeans.png?etag=58345e8bef1ce5f95ac882e71d309e6c",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb8",
+      "name": "Loafers",
+      "weather": "warm",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Loafers.png?etag=dc2d6e1ca7b297597406e35c40aef030",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cb9",
+      "name": "Sandals",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sandals.png?etag=9bea85a77c0306586d2b71a33b626d41",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cba",
+      "name": "Scarf",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Scarf.png?etag=74efbee93810c926b5507e862c6cb76c",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cbb",
+      "name": "Shorts",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cbc",
+      "name": "Skirt",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Skirt.png?etag=27a6bea7e1b63218820d615876fa31d1",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cbd",
+      "name": "Sunglasses",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sunglasses.png?etag=a1bced9e331d36cb278c45df51150432",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cbe",
+      "name": "Sweatshirt",
+      "weather": "warm",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sweatshirt.png?etag=008a9674757bea2e0bdb31242e364be0",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    },
+    {
+      "_id": "5d52ca02978fbd001fc44cbf",
+      "name": "Dress",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf",
+      "owner": "5d52ca02978fbd001fc44c6a"
+    }
+  ]
+}

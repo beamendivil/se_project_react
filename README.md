@@ -28,21 +28,25 @@ The idea of the application is pretty simple - we make a call to an API, which t
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/beamendivil/se_project_react.git
 ```
 
 2. Navigate to the project directory:
+
 ```bash
 cd se_project_react
 ```
 
 3. Install dependencies:
+
 ```bash
 npm install
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -84,15 +88,16 @@ The app uses the OpenWeatherMap API. The API key is stored in `src/utils/constan
 
 ```javascript
 const APIkey = "your-api-key-here";
-const latitude = 40.7128;  // Default NYC coordinates
+const latitude = 40.7128; // Default NYC coordinates
 const longitude = -74.006;
 ```
 
 ## Weather Conditions
 
 The app categorizes weather into three types:
+
 - **Hot** - 86°F and above
-- **Warm** - 66°F to 85°F  
+- **Warm** - 66°F to 85°F
 - **Cold** - Below 66°F
 
 ## Deployment
@@ -111,4 +116,5 @@ npm run deploy
 ## Author
 
 **Bea Mendivil**
+
 - GitHub: [@beamendivil](https://github.com/beamendivil)
