@@ -1,4 +1,5 @@
-import { APIkey, latitude, longitude } from "./constants";
+import { apiKey, latitude, longitude } from "./constants";
+import { checkResponse } from "./api";
 
 // Function to get user's current location
 const getCurrentLocation = () => {
@@ -35,15 +36,15 @@ export const getForecastWeather = async () => {
   try {
     const location = await getCurrentLocation();
     const weatherPromise = fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=imperial&appid=${APIkey}`
-    ).then(processServerResponse);
+      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=imperial&appid=${apiKey}`
+    ).then(checkResponse);
 
     return weatherPromise;
   } catch (error) {
     // Fallback to New York coordinates if location fails
     const weatherPromise = fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-    ).then(processServerResponse);
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
+    ).then(checkResponse);
 
     return weatherPromise;
   }
@@ -75,11 +76,4 @@ export const getWeatherCondition = (temperature) => {
   } else {
     return "cold";
   }
-};
-
-const processServerResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
 };

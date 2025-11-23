@@ -7,7 +7,8 @@ function DeleteConfirmationModal({
   onConfirmDelete,
   itemToDelete,
 }) {
-  const handleConfirmClick = () => {
+  const handleConfirmClick = (e) => {
+    e.preventDefault();
     onConfirmDelete(itemToDelete);
   };
 

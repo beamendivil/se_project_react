@@ -35,4 +35,4 @@ const deleteItem = (id) => {
   }).then(checkResponse);
 };
 
-export { getItems, addItem, deleteItem };
+export { getItems, addItem, deleteItem, checkResponse };

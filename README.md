@@ -45,13 +45,21 @@ cd se_project_react
 npm install
 ```
 
-4. Start the development server:
+4. Start the mock API server (required for clothing items functionality):
+
+```bash
+json-server --watch db.json --id _id --port 3001
+```
+
+5. In a separate terminal, start the development server:
 
 ```bash
 npm run dev
 ```
 
-5. Open your browser and visit `http://localhost:3000`
+6. Open your browser and visit `http://localhost:3000`
+
+**Note:** The mock API server must be running for add/delete clothing items functionality to work. Keep both terminals running during development.
 
 ## Available Scripts
 
