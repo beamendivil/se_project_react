@@ -9,7 +9,10 @@ function DeleteConfirmationModal({
 }) {
   const handleConfirmClick = (e) => {
     e.preventDefault();
-    onConfirmDelete(itemToDelete);
+    if (itemToDelete) {
+      onConfirmDelete(itemToDelete);
+      onClose();
+    }
   };
 
   return (

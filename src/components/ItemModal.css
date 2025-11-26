@@ -2,23 +2,31 @@
   background-color: #fff;
   border-radius: 16px;
   padding: 0;
-  max-width: 600px;
-  width: 100%;
+  max-width: 498px;
+  max-height: 90vh;
+  width: 90%;
   position: relative;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .modal__image {
   width: 100%;
   height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  background-color: #f8f8f8;
   border-radius: 16px 16px 0 0;
-  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .modal__footer {
   padding: 20px 24px;
+  display: block;
+  background-color: #fff;
+  border-radius: 0 0 16px 16px;
 }
 
 .modal__caption {

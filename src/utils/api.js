@@ -30,9 +30,21 @@ const addItem = ({ name, imageUrl, weather }) => {
 
 // DELETE /items/:id - Remove a clothing item
 const deleteItem = (id) => {
-  return fetch(`${baseUrl}/items/${id}`, {
-    method: "DELETE",
-  }).then(checkResponse);
+  // Find item by _id query parameter since json-server 1.0 doesn't support custom ID field
+  return fetch(`${baseUrl}/items?_id=${id}`, {
+    method: "GET",
+  })
+    .then(checkResponse)
+    .then((items) => {
+      if (items && items.length > 0) {
+        // Use the auto-generated id field for deletion
+        const item = items[0];
+        return fetch(`${baseUrl}/items/${item.id}`, {
+          method: "DELETE",
+        }).then(checkResponse);
+      }
+      return Promise.reject("Item not found");
+    });
 };
 
 export { getItems, addItem, deleteItem, checkResponse };

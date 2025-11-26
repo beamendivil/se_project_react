@@ -174,6 +174,7 @@ function App() {
                     clothingItems={clothingItems}
                     onCardClick={handleCardClick}
                     onAddClothesClick={handleOpenAddClothesModal}
+                    onDeleteItem={openConfirmationModal}
                   />
                 )
               }
