@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 
 const useForm = (initialValues = {}) => {
-  const [values, setValues] = useState(initialValues);
+  const initialFormValues = useRef(initialValues).current;
+  const [values, setValues] = useState(initialFormValues);
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
 
@@ -72,11 +73,11 @@ const useForm = (initialValues = {}) => {
     setIsValid(!hasErrors && !hasEmptyRequiredFields);
   };
 
-  const resetForm = () => {
-    setValues(initialValues);
+  const resetForm = useCallback(() => {
+    setValues(initialFormValues);
     setErrors({});
     setIsValid(false);
-  };
+  }, [initialFormValues]);
 
   return {
     values,
