@@ -1,82 +1,64 @@
 {
   "items": [
     {
-      "id": "80af",
-      "name": "Sneakers",
-      "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400025637045_LATTE_A1?wid=984&hei=1312&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
-      "weather": "warm"
-    },
-    {
-      "id": "7f28",
-      "name": "Pants",
-      "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400001282098_CREAM?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
-      "weather": "cold"
-    },
-    {
-      "id": "87fb",
+      "_id": "87fb",
       "name": "Tshirt",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400022953022_WHITE?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "warm"
     },
     {
-      "id": "63b2",
+      "_id": "63b2",
       "name": "Puffer Jacket",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400021505262_BLACK?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "cold"
     },
     {
-      "id": "6a05",
+      "_id": "6a05",
       "name": "Boots",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400025933907_BLACK?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "cold"
     },
     {
-      "id": "534f",
+      "_id": "534f",
       "name": "Jeans",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400022586912_KEEPSAKE?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "warm"
     },
     {
-      "id": "9394",
+      "_id": "9394",
       "name": "Sandals",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400022947228_BLACK_A1?wid=984&hei=1312&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "hot"
     },
     {
-      "id": "56cc",
+      "_id": "56cc",
       "name": "Scarf",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400025984543_IVORY?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "cold"
     },
     {
-      "id": "0303",
+      "_id": "0303",
       "name": "Skirt",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400022783844_BLACK?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "warm"
     },
     {
-      "id": "29cf",
-      "name": "Sunnies",
-      "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400025547583_BLACKGREY?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
-      "weather": "hot"
-    },
-    {
-      "id": "e222",
-      "name": "Dress",
-      "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400022945668_CHERRYSPRITZ?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
-      "weather": "hot"
-    },
-    {
-      "id": "e530",
-      "name": "Beanie",
-      "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400019748380_BLACK?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
-      "weather": "cold"
-    },
-    {
-      "id": "007b",
+      "_id": "007b",
       "name": "Sweater",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400024234204_CREAM?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "cold"
+    },
+    {
+      "_id": "c914",
+      "name": "Tee shirt",
+      "imageUrl": "https://hechoporchecho.com/cdn/shop/products/og-proudimmigrant.jpg?v=1608108306&width=1680",
+      "weather": "warm"
+    },
+    {
+      "_id": "69d2",
+      "name": "Tshirt",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2380/6877/files/2_9f31c872-0197-4293-9b8c-bc281420cf09.jpg?v=1764826411",
+      "weather": "hot"
     }
   ]
 }

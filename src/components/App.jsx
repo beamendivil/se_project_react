@@ -99,12 +99,14 @@ function App() {
 
   const handleCardDelete = async (item) => {
     try {
-      // Delete the item from the server
-      await deleteItem(item._id);
+      const itemId = item._id;
 
-      // Remove the item from clothing items using filter
+      // Delete the item from the server by its Mongo-style _id
+      await deleteItem(itemId);
+
+      // Optimistically remove the item from local state
       setClothingItems((prevItems) =>
-        prevItems.filter((clothingItem) => clothingItem._id !== item._id)
+        prevItems.filter((clothingItem) => clothingItem._id !== itemId)
       );
 
       // Close all modals and reset state

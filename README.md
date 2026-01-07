@@ -48,7 +48,7 @@ npm install
 4. Start the mock API server (required for clothing items functionality):
 
 ```bash
-json-server --watch db.json --id _id --port 3001
+npm run api
 ```
 
 5. In a separate terminal, start the development server:
@@ -64,6 +64,7 @@ npm run dev
 ## Available Scripts
 
 - `npm run dev` - Start development server
+- `npm run api` - Start the local JSON server for clothing items
 - `npm run build` - Build for production
 - `npm run lint` - Run ESLint code quality checks
 - `npm run preview` - Preview production build
@@ -73,21 +74,28 @@ npm run dev
 
 ```
 src/
-├── components/          # React components
-│   ├── App.jsx         # Main application component
-│   ├── Header.jsx      # Header with navigation and user info
-│   ├── Main.jsx        # Main content area
-│   ├── WeatherCard.jsx # Weather display component
-│   ├── ItemCard.jsx    # Individual clothing item cards
-│   ├── ModalWithForm.jsx # Modal for adding new items
-│   ├── ItemModal.jsx   # Modal for viewing item details
-│   └── Footer.jsx      # Footer component
-├── utils/              # Utility functions
-│   ├── weatherApi.js   # Weather API integration
-│   ├── constants.js    # API keys and configuration
-│   └── defaultClothingItems.js # Default clothing data
-├── assets/             # Images and static files
-└── vendor/             # Third-party CSS (normalize.css)
+├── components/              # React components
+│   ├── App.jsx             # Main application component
+│   ├── Header.jsx          # Header with navigation and user info
+│   ├── Main.jsx            # Main content area
+│   ├── Profile.jsx         # Profile and wardrobe view
+│   ├── WeatherCard.jsx     # Weather display component
+│   ├── ItemCard.jsx        # Individual clothing item cards
+│   ├── ClothesSection.jsx  # Clothing list for profile
+│   ├── ModalWithForm.jsx   # Reusable base modal
+│   ├── ItemModal.jsx       # Modal for viewing item details
+│   ├── DeleteConfirmationModal.jsx # Confirmation dialog
+│   └── Footer.jsx          # Footer component
+├── contexts/               # React context definitions
+│   └── CurrentTemperatureUnitContext.js
+├── hooks/                  # Custom React hooks
+│   └── useForm.js
+├── utils/                  # Utility and API modules
+│   ├── api.js              # Clothing items API client
+│   ├── weatherApi.js       # Weather API integration
+│   └── constants.js        # API keys and configuration
+├── assets/                 # Images and static files
+└── vendor/                 # Third-party CSS (normalize.css)
 ```
 
 ## API Configuration
