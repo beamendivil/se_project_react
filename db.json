@@ -47,18 +47,6 @@
       "name": "Sweater",
       "imageUrl": "https://cdn.saksfifthavenue.com/is/image/saks/0400024234204_CREAM?wid=2000&hei=2667&resMode=sharp2&op_usm=0.9,1.0,8,0&fmt=webp",
       "weather": "cold"
-    },
-    {
-      "_id": "c914",
-      "name": "Tee shirt",
-      "imageUrl": "https://hechoporchecho.com/cdn/shop/products/og-proudimmigrant.jpg?v=1608108306&width=1680",
-      "weather": "warm"
-    },
-    {
-      "_id": "69d2",
-      "name": "Tshirt",
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2380/6877/files/2_9f31c872-0197-4293-9b8c-bc281420cf09.jpg?v=1764826411",
-      "weather": "hot"
     }
   ]
 }

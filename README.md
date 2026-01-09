@@ -126,7 +126,7 @@ npm run deploy
 
 ## Links
 
-- [Live Demo](https://beamendivil.github.io/se_project_react/)
+- [Live Demo](https://youtu.be/_2kesm-Sifw?si=qFTBzOhWWJ_4JOXf)
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 
 ## Author
