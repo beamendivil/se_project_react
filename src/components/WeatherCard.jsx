@@ -51,24 +51,24 @@ function WeatherCard({ weatherData }) {
       )
         return dayCloudy;
       return dayClear; // Default for clear/sunny
-    } else {
-      if (conditionLower.includes("rain") || conditionLower.includes("drizzle"))
-        return nightRain;
-      if (conditionLower.includes("snow")) return nightSnow;
-      if (
-        conditionLower.includes("thunder") ||
-        conditionLower.includes("storm")
-      )
-        return nightStorm;
-      if (conditionLower.includes("fog") || conditionLower.includes("mist"))
-        return nightFog;
-      if (
-        conditionLower.includes("cloud") ||
-        conditionLower.includes("overcast")
-      )
-        return nightCloudy;
-      return nightClear; // Default for clear night
     }
+
+    if (conditionLower.includes("rain") || conditionLower.includes("drizzle"))
+      return nightRain;
+    if (conditionLower.includes("snow")) return nightSnow;
+    if (
+      conditionLower.includes("thunder") ||
+      conditionLower.includes("storm")
+    )
+      return nightStorm;
+    if (conditionLower.includes("fog") || conditionLower.includes("mist"))
+      return nightFog;
+    if (
+      conditionLower.includes("cloud") ||
+      conditionLower.includes("overcast")
+    )
+      return nightCloudy;
+    return nightClear; // Default for clear night
   };
 
   const weatherImage = getWeatherImage();

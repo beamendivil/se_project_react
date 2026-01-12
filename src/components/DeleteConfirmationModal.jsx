@@ -1,4 +1,4 @@
-import ModalWithForm from "./ModalWithForm.jsx";
+import ModalWithForm from "./ModalWithForm";
 import "./DeleteConfirmationModal.css";
 
 function DeleteConfirmationModal({

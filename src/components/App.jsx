@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./Header";
-import Main from "./Main.jsx";
+import Main from "./Main";
 import Profile from "./Profile";
 import Footer from "./Footer";
 import AddItemModal from "./AddItemModal/AddItemModal";
@@ -118,9 +118,11 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === "F"
-      ? setCurrentTemperatureUnit("C")
-      : setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") {
+      setCurrentTemperatureUnit("C");
+    } else {
+      setCurrentTemperatureUnit("F");
+    }
   };
 
   // Handle escape key press

@@ -45,28 +45,31 @@ cd se_project_react
 npm install
 ```
 
-4. Start the mock API server (required for clothing items functionality):
+4. Start the backend API (Express + MongoDB) on port 3001:
 
 ```bash
-npm run api
-```
-
-5. In a separate terminal, start the development server:
-
-```bash
+npm run start
+# or with hot reload
 npm run dev
 ```
 
-6. Open your browser and visit `http://localhost:3000`
+5. In a separate terminal, start the frontend (Vite). It will pick a free port (commonly 5173+):
 
-**Note:** The mock API server must be running for add/delete clothing items functionality to work. Keep both terminals running during development.
+```bash
+npm run dev:client
+```
+
+6. Open the Local URL printed by Vite (for example, `http://localhost:5173/` or `http://localhost:5175/`). The frontend is configured to call the backend at `http://localhost:3001` by default. If you need a custom API URL, set `VITE_API_URL` in your environment before running Vite.
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run api` - Start the local JSON server for clothing items
-- `npm run build` - Build for production
+- `npm run start` - Start backend API on port 3001
+- `npm run dev` - Start backend API on port 3001 with hot reload (nodemon)
+- `npm run dev:client` - Start Vite frontend with hot reload
+- `npm run dev:server` - Alias for backend hot reload
+- `npm run build` - Build frontend for production
 - `npm run lint` - Run ESLint code quality checks
+- `npm run lint:basic` - Basic ESLint run
 - `npm run preview` - Preview production build
 - `npm run deploy` - Deploy to GitHub Pages
 

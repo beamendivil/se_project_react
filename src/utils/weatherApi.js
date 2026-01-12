@@ -2,8 +2,7 @@ import { apiKey, latitude, longitude } from "./constants";
 import { checkResponse } from "./api";
 
 // Function to get user's current location
-const getCurrentLocation = () => {
-  return new Promise((resolve, reject) => {
+const getCurrentLocation = () => new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       reject(new Error("Geolocation is not supported by this browser."));
       return;
@@ -19,8 +18,8 @@ const getCurrentLocation = () => {
       () => {
         // Fallback to New York if geolocation fails
         resolve({
-          latitude: latitude,
-          longitude: longitude,
+          latitude,
+          longitude,
         });
       },
       {
@@ -30,7 +29,6 @@ const getCurrentLocation = () => {
       }
     );
   });
-};
 
 export const getForecastWeather = async () => {
   try {
@@ -50,8 +48,18 @@ export const getForecastWeather = async () => {
   }
 };
 
+export const getWeatherCondition = (temperature) => {
+  if (temperature >= 86) {
+    return "hot";
+  } if (temperature >= 66) {
+    return "warm";
+  } 
+    return "cold";
+  
+};
+
 export const parseWeatherData = (data) => {
-  const main = data.main;
+  const { main } = data;
   const temperature = main && main.temp;
   const city = data.name;
   const condition = data.weather[0]?.main || "Clear";
@@ -61,19 +69,9 @@ export const parseWeatherData = (data) => {
       F: Math.round(temperature),
       C: Math.round(((temperature - 32) * 5) / 9),
     },
-    city: city,
-    condition: condition,
+    city,
+    condition,
     weatherType: getWeatherCondition(temperature),
   };
   return weather;
-};
-
-export const getWeatherCondition = (temperature) => {
-  if (temperature >= 86) {
-    return "hot";
-  } else if (temperature >= 66) {
-    return "warm";
-  } else {
-    return "cold";
-  }
 };

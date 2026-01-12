@@ -6,23 +6,16 @@ const useForm = (initialValues = {}) => {
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+  const checkFormValidity = (currentValues, currentErrors) => {
+    const hasErrors = Object.values(currentErrors).some(
+      (error) => error !== ""
+    );
+    const hasEmptyRequiredFields =
+      !currentValues.name?.trim() ||
+      !currentValues.imageUrl?.trim() ||
+      !currentValues.weather;
 
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: "",
-      }));
-    }
-
-    // Validate the field
-    validateField(name, value);
+    setIsValid(!hasErrors && !hasEmptyRequiredFields);
   };
 
   const validateField = (name, value) => {
@@ -61,16 +54,23 @@ const useForm = (initialValues = {}) => {
     );
   };
 
-  const checkFormValidity = (currentValues, currentErrors) => {
-    const hasErrors = Object.values(currentErrors).some(
-      (error) => error !== ""
-    );
-    const hasEmptyRequiredFields =
-      !currentValues.name?.trim() ||
-      !currentValues.imageUrl?.trim() ||
-      !currentValues.weather;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
 
-    setIsValid(!hasErrors && !hasEmptyRequiredFields);
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "",
+      }));
+    }
+
+    // Validate the field
+    validateField(name, value);
   };
 
   const resetForm = useCallback(() => {
