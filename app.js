@@ -2,7 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import routes from "./routes/index.js";
-import { INVALID_DATA_ERROR, NOT_FOUND_ERROR, DEFAULT_ERROR } from "./utils/errors.js";
+import auth from "./middlewares/auth.js";
+import { login, createUser } from "./controllers/users.js";
+import { getClothingItems } from "./controllers/clothingItems.js";
+import {
+  INVALID_DATA_ERROR,
+  NOT_FOUND_ERROR,
+  DEFAULT_ERROR,
+} from "./utils/errors.js";
 
 const { PORT = 3001, MONGO_URL = "mongodb://localhost:27017/wtwr_db" } = process.env;
 
@@ -10,15 +17,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-// Temporary authorization middleware: attach a fixed test user to each request
-app.use((req, res, next) => {
-  req.user = {
-    // TODO: replace this id with the _id of the test user you created in MongoDB
-    _id: "5d8b8592978f8bd833ca8133",
-  };
-  next();
-});
 
 // connect to MongoDB
 mongoose
@@ -29,6 +27,14 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+
+// Public auth routes
+app.post("/signin", login);
+app.post("/signup", createUser);
+app.get("/items", getClothingItems);
+
+// Auth middleware (protect routes below)
+app.use(auth);
 
 // central API routes
 app.use("/", routes);

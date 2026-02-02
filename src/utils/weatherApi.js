@@ -2,7 +2,8 @@ import { apiKey, latitude, longitude } from "./constants";
 import { checkResponse } from "./api";
 
 // Function to get user's current location
-const getCurrentLocation = () => new Promise((resolve, reject) => {
+const getCurrentLocation = () =>
+  new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       reject(new Error("Geolocation is not supported by this browser."));
       return;
@@ -51,11 +52,13 @@ export const getForecastWeather = async () => {
 export const getWeatherCondition = (temperature) => {
   if (temperature >= 86) {
     return "hot";
-  } if (temperature >= 66) {
+  }
+
+  if (temperature >= 66) {
     return "warm";
-  } 
-    return "cold";
-  
+  }
+
+  return "cold";
 };
 
 export const parseWeatherData = (data) => {
