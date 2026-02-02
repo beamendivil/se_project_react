@@ -13,10 +13,12 @@ const checkResponse = (res) => {
 const getItems = () => fetch(`${baseUrl}/items`).then(checkResponse);
 
 // POST /items - Add a new clothing item
-const addItem = ({ name, imageUrl, weather }) => fetch(`${baseUrl}/items`, {
+const addItem = ({ name, imageUrl, weather }, token) =>
+  fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,
@@ -26,8 +28,49 @@ const addItem = ({ name, imageUrl, weather }) => fetch(`${baseUrl}/items`, {
   }).then(checkResponse);
 
 // DELETE /items/:id - Remove a clothing item
-const deleteItem = (id) => fetch(`${baseUrl}/items/${id}`, {
+const deleteItem = (id, token) =>
+  fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
   }).then(checkResponse);
 
-export { getItems, addItem, deleteItem, checkResponse };
+// PATCH /users/me - Update user profile
+const updateUserProfile = ({ name, avatar }, token) =>
+  fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(checkResponse);
+
+// PUT /items/:id/likes - Like an item
+const addCardLike = (id, token) =>
+  fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+
+// DELETE /items/:id/likes - Unlike an item
+const removeCardLike = (id, token) =>
+  fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  updateUserProfile,
+  addCardLike,
+  removeCardLike,
+  checkResponse,
+};

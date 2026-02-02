@@ -4,7 +4,7 @@ import ItemCard from "./ItemCard";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-function Main({ weatherData, clothingItems, onCardClick }) {
+function Main({ weatherData, clothingItems, onCardClick, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   // Get the weather type from the weatherData
@@ -34,7 +34,11 @@ function Main({ weatherData, clothingItems, onCardClick }) {
           <ul className="main__items-list">
             {filteredItems.map((item) => (
               <li key={item._id} className="main__item">
-                <ItemCard item={item} onCardClick={onCardClick} />
+                <ItemCard
+                  item={item}
+                  onCardClick={onCardClick}
+                  onCardLike={onCardLike}
+                />
               </li>
             ))}
           </ul>
