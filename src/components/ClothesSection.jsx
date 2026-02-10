@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import ItemCard from "./ItemCard";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-import "./ClothesSection.css";
+import "../blocks/ClothesSection.css";
 
 function ClothesSection({
   clothingItems,

@@ -1,28 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
+import useForm from "../hooks/useForm";
 
-const LoginModal = ({ isOpen, onLogin, onCloseModal }) => {
-  const [values, setValues] = useState({
+const LoginModal = ({ isOpen, onLogin, onCloseModal, onSwitchToRegister }) => {
+  const { values, isValid, handleChange, resetForm } = useForm({
     email: "",
     password: "",
   });
-
-  const isValid = values.email.trim() && values.password.trim();
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const resetForm = useCallback(() => {
-    setValues({
-      email: "",
-      password: "",
-    });
-  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,12 +23,6 @@ const LoginModal = ({ isOpen, onLogin, onCloseModal }) => {
     );
   };
 
-  useEffect(() => {
-    if (!isOpen) {
-      resetForm();
-    }
-  }, [isOpen, resetForm]);
-
   return (
     <ModalWithForm
       isOpen={isOpen}
@@ -55,6 +32,15 @@ const LoginModal = ({ isOpen, onLogin, onCloseModal }) => {
       name="login"
       buttonText="Log in"
       isFormValid={!!isValid}
+      footerContent={
+        <button
+          type="button"
+          className="modal__secondary-action"
+          onClick={onSwitchToRegister}
+        >
+          or Sign Up
+        </button>
+      }
     >
       <label className="modal__label">
         Email*

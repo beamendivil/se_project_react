@@ -26,7 +26,7 @@ import {
 } from "../utils/api";
 import { register, authorize, checkToken } from "../utils/auth";
 
-import "../App.css";
+import "../blocks/App.css";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -102,6 +102,14 @@ function App() {
   };
 
   const handleOpenSignInModal = () => {
+    setActiveModal("login");
+  };
+
+  const handleSwitchToSignUp = () => {
+    setActiveModal("signup");
+  };
+
+  const handleSwitchToLogin = () => {
     setActiveModal("login");
   };
 
@@ -357,12 +365,14 @@ function App() {
               isOpen={activeModal === "signup"}
               onRegister={handleRegister}
               onCloseModal={handleCloseModal}
+              onSwitchToLogin={handleSwitchToLogin}
             />
 
             <LoginModal
               isOpen={activeModal === "login"}
               onLogin={handleLogin}
               onCloseModal={handleCloseModal}
+              onSwitchToRegister={handleSwitchToSignUp}
             />
 
             <EditProfileModal

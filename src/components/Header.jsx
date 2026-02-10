@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "../blocks/Header.css";
 import ToggleSwitch from "./ToggleSwitch";
 import logoImage from "../assets/Logo (1).png";
 import CurrentUserContext from "../contexts/CurrentUserContext";

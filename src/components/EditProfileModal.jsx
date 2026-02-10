@@ -1,33 +1,27 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import useForm from "../hooks/useForm";
 
 const EditProfileModal = ({ isOpen, onCloseModal, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [values, setValues] = useState({ name: "", avatar: "" });
-
-  const isValid = values.name.trim() && values.avatar.trim();
-
-  const resetForm = useCallback(() => {
-    setValues({
-      name: currentUser?.name || "",
-      avatar: currentUser?.avatar || "",
-    });
-  }, [currentUser]);
+  const { values, isValid, handleChange, resetForm } = useForm({
+    name: "",
+    avatar: "",
+  });
 
   useEffect(() => {
     if (isOpen) {
-      resetForm();
-    }
-  }, [isOpen, resetForm]);
+      const nextValues = {
+        name: currentUser?.name || "",
+        avatar: currentUser?.avatar || "",
+      };
+      const nextIsValid =
+        nextValues.name.trim() && nextValues.avatar.trim();
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
+      resetForm(nextValues, {}, !!nextIsValid);
+    }
+  }, [isOpen, currentUser, resetForm]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -133,6 +133,12 @@ npm run deploy
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 - [Backend Repository](https://github.com/beamendivil/se_project_express)
 
+## Design Implementation Notes
+
+- **Auth Modal Switching**: The login and sign up modals include a 2nd button to switch between them, matching the design at https://snipboard.io/SGUxFB.jpg
+- **Reusable ItemCard Component**: The same `ItemCard` component is reused for both Main page items and Profile page items, ensuring consistent design across the application
+- **Profile Items Like Functionality**: Profile page items include heart icons for liking, just like the Main page items
+
 ## Author
 
 **Bea Mendivil**

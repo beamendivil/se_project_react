@@ -1,36 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
+import useForm from "../hooks/useForm";
 
-const RegisterModal = ({ isOpen, onRegister, onCloseModal }) => {
-  const [values, setValues] = useState({
+const RegisterModal = ({
+  isOpen,
+  onRegister,
+  onCloseModal,
+  onSwitchToLogin,
+}) => {
+  const { values, isValid, handleChange, resetForm } = useForm({
     name: "",
     avatar: "",
     email: "",
     password: "",
   });
-
-  const isValid =
-    values.name.trim() &&
-    values.avatar.trim() &&
-    values.email.trim() &&
-    values.password.trim();
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const resetForm = useCallback(() => {
-    setValues({
-      name: "",
-      avatar: "",
-      email: "",
-      password: "",
-    });
-  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,12 +32,6 @@ const RegisterModal = ({ isOpen, onRegister, onCloseModal }) => {
     );
   };
 
-  useEffect(() => {
-    if (!isOpen) {
-      resetForm();
-    }
-  }, [isOpen, resetForm]);
-
   return (
     <ModalWithForm
       isOpen={isOpen}
@@ -65,6 +41,15 @@ const RegisterModal = ({ isOpen, onRegister, onCloseModal }) => {
       name="signup"
       buttonText="Sign up"
       isFormValid={!!isValid}
+      footerContent={
+        <button
+          type="button"
+          className="modal__secondary-action"
+          onClick={onSwitchToLogin}
+        >
+          or Log In
+        </button>
+      }
     >
       <label className="modal__label">
         Name*

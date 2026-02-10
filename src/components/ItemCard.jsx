@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "./ItemCard.css";
+import "../blocks/ItemCard.css";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function ItemCard({
@@ -48,7 +48,7 @@ function ItemCard({
     : false;
   const itemLikeButtonClassName = `item-card__like-button ${
     isLiked ? "item-card__like-button_active" : ""
-  }`;
+  } ${showControls ? "item-card__like-button_with-controls" : ""}`;
 
   return (
     <div className="item-card" onClick={handleClick}>

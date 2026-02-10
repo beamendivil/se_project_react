@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react";
-import "./SideBar.css";
+import "../blocks/SideBar.css";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function SideBar({ onEditProfile, onSignOut }) {

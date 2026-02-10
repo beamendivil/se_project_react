@@ -1,5 +1,5 @@
 import ModalWithForm from "./ModalWithForm";
-import "./DeleteConfirmationModal.css";
+import "../blocks/DeleteConfirmationModal.css";
 
 function DeleteConfirmationModal({
   isOpen,
